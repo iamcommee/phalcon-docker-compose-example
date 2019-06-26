@@ -29,10 +29,10 @@ docker-compose up
 ```
 FROM php:7.2-apache -> php:7.x-apache
 
-ARG PHALCON_VERSION=3.4.3 -> PHALCON_VERSION=4.0.0-alpha.5 ( not recommend because there are some problems)
+ARG PHALCON_VERSION=3.4.3 -> PHALCON_VERSION=4.0.0-alpha.5
 
 ```
- List version here - [phalcon-version][:phalcon-version:]
+ List phalcon version here - [phalcon-version][:phalcon-version:]
  
  **Note : When you change Dockerfile, remember you have to run docker-compose build before docker-compose up.**
  

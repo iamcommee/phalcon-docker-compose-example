@@ -19,6 +19,7 @@ services:
       ports:
         - "80:80"
       volumes:
+        - ./phpconfig:/usr/local/etc/php
         - ./application:/var/www/html
       depends_on:
         - mariadb

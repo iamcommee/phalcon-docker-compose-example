@@ -1,17 +1,28 @@
 FROM php:7.2-apache
 
+# PSR for phalcon 4.x
+ARG PSR_VERSION=0.6.1
+
 ARG PHALCON_VERSION=3.4.3
 ARG PHALCON_EXT_PATH=php7/64bits
+
+RUN set -xe && \
+        # Compile PSR   
+        curl -LO https://github.com/jbboehr/php-psr/archive/v${PSR_VERSION}.tar.gz && \
+        tar xzf ${PWD}/v${PSR_VERSION}.tar.gz && \
+        cd ${PWD}/php-psr-${PSR_VERSION} && \
+        phpize && \
+        ./configure && \
+        make && \
+        make test && \
+        make install 
 
 RUN set -xe && \
         # Compile Phalcon
         curl -LO https://github.com/phalcon/cphalcon/archive/v${PHALCON_VERSION}.tar.gz && \
         tar xzf ${PWD}/v${PHALCON_VERSION}.tar.gz && \
-        docker-php-ext-install -j $(getconf _NPROCESSORS_ONLN) ${PWD}/cphalcon-${PHALCON_VERSION}/build/${PHALCON_EXT_PATH} && \
-        # Remove all temp files
-        rm -r \
-            ${PWD}/v${PHALCON_VERSION}.tar.gz \
-            ${PWD}/cphalcon-${PHALCON_VERSION}
+        cd ${PWD}/cphalcon-${PHALCON_VERSION}/build/ && \
+        ./install
 
 # Install packages
 RUN apt-get update && \
