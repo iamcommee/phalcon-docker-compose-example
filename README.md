@@ -40,7 +40,7 @@ ARG PHALCON_VERSION=3.4.3 -> PHALCON_VERSION=4.0.0-alpha.5 ( not recommend becau
  
  3. variables.env - This file use to define the environment variable of service.
 
- Note : You have to look the variable in your image. eg. [mysql-docker][:mysql-docker:] (Environment Variables Section)
+ **Note : You have to look the variable in your image. eg. [mysql-docker][:mysql-docker:] (Environment Variables Section)**
  
  4. application folder - This folder is the directory of your project.
    
