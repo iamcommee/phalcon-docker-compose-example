@@ -27,9 +27,12 @@ docker-compose up
 
 1. Dockerfile - You can manage php extension or change the version of php in docker/app/Dokerfile. eg.
 ```
-FROM mileschou/phalcon:7.1-apache -> mileschou/phalcon:5.x-apache or mileschou/phalcon:7.x-apache
+FROM php:7.2-apache -> php:7.x-apache
+
+ARG PHALCON_VERSION=3.4.3 -> PHALCON_VERSION=4.0.0-alpha.5 ( not recommend because there are some problems)
+
 ```
- List tag here - [mileschou-phalcon-image-docker][:phalcon-image:]
+ List version here - [phalcon-version][:phalcon-version:]
  
  **Note : When you change Dockerfile, remember you have to run docker-compose build before docker-compose up.**
  
@@ -40,17 +43,8 @@ FROM mileschou/phalcon:7.1-apache -> mileschou/phalcon:5.x-apache or mileschou/p
  Note : You have to look the variable in your image. eg. [mysql-docker][:mysql-docker:] (Environment Variables Section)
  
  4. application folder - This folder is the directory of your project.
- 
- ## Thanks 
-  * [mileschou-phalcon-image-docker][:phalcon-image:]
-  * [Phalcon][:phalcon:]
-
-## Finally
-  I'm not phalcon-image owner.
-  
-  So, if you have any problems with phalcon-images contact [mileschou-phalcon-image-docker][:phalcon-image:].
-  
+   
 [:phalcon:]:        https://github.com/phalcon/cphalcon
 [:docker:]:         https://www.docker.com
-[:phalcon-image:]:  https://hub.docker.com/r/mileschou/phalcon/
+[:phalcon-version:]:  https://github.com/phalcon/cphalcon/releases
 [:mysql-docker:]:   https://hub.docker.com/_/mysql
