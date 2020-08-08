@@ -4,7 +4,6 @@ FROM php:7.2-apache
 ARG PSR_VERSION=0.6.1
 
 ARG PHALCON_VERSION=3.4.3
-ARG PHALCON_EXT_PATH=php7/64bits
 
 RUN set -xe && \
         # Compile PSR   
